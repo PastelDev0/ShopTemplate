@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlueRetro Shop</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Background with subtle texture */
+    body {
+      background: #f0f6ff url('https://www.transparenttextures.com/patterns/cubes.png') repeat;
+      font-family: 'Montserrat', sans-serif;
+      color: #1a2b4c;
+      margin: 0;
+      padding: 20px 15px;
+    }
+
+    /* Container with subtle shadow and border */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border: 2px solid #4a6ccf;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(74,108,207,0.3);
+      padding: 25px 40px 40px;
+    }
+
+    /* Header with mild gradient and bottom border */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #4a6ccf;
+      background: linear-gradient(135deg, #d0dbff 0%, #a2b8ff 100%);
+      border-radius: 10px 10px 0 0;
+      box-shadow: inset 0 0 12px #9bb7ff;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      color: #1a2b4c;
+      text-shadow: 1px 1px 2px #dbe6ff;
+      margin: 0;
+    }
+
+    /* Navigation bar */
+    nav {
+      background: #4a6ccf;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 14px 0;
+      box-shadow: 0 3px 8px rgba(74,108,207,0.6);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #e4ecff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #2d4599;
+      box-shadow: 0 0 12px #95aaff;
+      transform: scale(1.1);
+      color: #d0dbff;
+    }
+
+    /* Grid for products */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    /* Individual product card */
+    .product-card {
+      border: 2px solid #8ba3ff;
+      border-radius: 14px;
+      box-shadow: 0 0 10px #9fbfff inset;
+      padding: 20px;
+      background: #f6f9ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 0 20px #4a6ccf;
+      transform: translateY(-8px);
+      border-color: #4a6ccf;
+      background: #e3eaff;
+    }
+
+    /* Product image */
+    .product-card img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid #5c7cd1;
+      background: white;
+      box-shadow: 0 0 8px #a5bbff;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Product title */
+    .product-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #243c6b;
+      text-align: center;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    /* Product description */
+    .product-desc {
+      font-size: 0.95rem;
+      color: #405d90;
+      text-align: center;
+      margin-bottom: 15px;
+      min-height: 40px;
+    }
+
+    /* Product price */
+    .product-price {
+      font-weight: 700;
+      color: #4a6ccf;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+
+    /* Buy button */
+    .buy-btn {
+      background: #4a6ccf;
+      color: #e4ecff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(74,108,207,0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+
+    .buy-btn:hover {
+      background: #2d4599;
+      box-shadow: 0 0 20px #95aaff;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #6b7dac;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px 20px 30px;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px 0;
+      }
+      .product-card img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Deals</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>BlueRetro Shop</h1>
+    </header>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/160?text=Wireless+Headphones" alt="Wireless Headphones" />
+        <div class="product-title">Wireless Headphones</div>
+        <div class="product-desc">High-quality sound, noise cancelling, and comfy fit.</div>
+        <div class="product-price">$89.99</div>
+        <button class="buy-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/160?text=Smart+Watch" alt="Smart Watch" />
+        <div class="product-title">Smart Watch</div>
+        <div class="product-desc">Track fitness, notifications, and more on your wrist.</div>
+        <div class="product-price">$149.99</div>
+        <button class="buy-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/160?text=Portable+Speaker" alt="Portable Speaker" />
+        <div class="product-title">Portable Speaker</div>
+        <div class="product-desc">Bluetooth speaker with deep bass and long battery life.</div>
+        <div class="product-price">$59.99</div>
+        <button class="buy-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/160?text=Gaming+Mouse" alt="Gaming Mouse" />
+        <div class="product-title">Gaming Mouse</div>
+        <div class="product-desc">Ergonomic design with customizable RGB lighting.</div>
+        <div class="product-price">$49.99</div>
+        <button class="buy-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 BlueRetro Shop — Made with 💙 and retro vibes
+    </footer>
+  </div>
+</body>
+</html>
